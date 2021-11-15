@@ -1,3 +1,4 @@
+@import "~antd/dist/antd.css";
 .App {
   text-align: center;
 }
@@ -11,6 +12,11 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.counter {
+  font-size: 60px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .App-header {

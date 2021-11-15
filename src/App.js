@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Button, DatePicker } from "antd";
 
 function App() {
+  const [count, setCount] = useState(1);
+
+  useEffect(() => {
+    console.log("I am in UseEffect");
+  }, [count]);
+
+  const decreaseCount = () => {
+    setCount(parseInt(count - 1));
+  };
+
+  const increaseCount = () => {
+    setCount(parseInt(count + 1));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="counter" id="myCount">
+        {count}
+      </div>
+      <Button onClick={() => increaseCount()}>Increase</Button>
+      <Button type="primary" danger ghost onClick={() => decreaseCount()}>
+        Decrease
+      </Button>
+      <DatePicker></DatePicker>
     </div>
   );
 }
